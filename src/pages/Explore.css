@@ -1,0 +1,346 @@
+/* ========================================
+   EXPLORE PAGE
+   ======================================== */
+
+.explore-page {
+  min-height: 100vh;
+}
+
+.explore-main {
+  padding: 8rem 2rem 6rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* --- Hero --- */
+.explore-hero {
+  margin-bottom: 4rem;
+}
+
+.explore-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .explore-hero-content {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.explore-hero-text {
+  max-width: 40rem;
+}
+
+.explore-title {
+  font-family: var(--font-headline);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--on-surface);
+  margin-bottom: 1.5rem;
+}
+
+.text-accent {
+  color: var(--primary);
+}
+
+.explore-subtitle {
+  font-size: 1.125rem;
+  color: var(--on-surface-variant);
+  line-height: 1.7;
+}
+
+.explore-telemetry {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--secondary-fixed-dim);
+  border-left: 1px solid rgba(59, 73, 76, 0.3);
+  padding-left: 1.5rem;
+  height: fit-content;
+}
+
+.telemetry-icon {
+  color: var(--primary);
+}
+
+.telemetry-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.telemetry-label {
+  color: var(--on-surface);
+  font-weight: 700;
+}
+
+.telemetry-value {
+  color: var(--secondary-fixed-dim);
+}
+
+/* --- Filters --- */
+.explore-filters {
+  margin-bottom: 3rem;
+  position: sticky;
+  top: 6rem;
+  z-index: 40;
+}
+
+.filters-bar {
+  background: rgba(24, 28, 34, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1.5rem 2rem;
+  border-radius: var(--radius-2xl);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  border: 1px solid rgba(59, 73, 76, 0.1);
+  box-shadow: 0 20px 40px -10px rgba(0, 229, 255, 0.08);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-label {
+  font-family: var(--font-label);
+  font-size: 0.5625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--outline);
+}
+
+.filter-select-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-select {
+  background: transparent;
+  border: none;
+  color: var(--on-surface);
+  font-family: var(--font-headline);
+  font-weight: 600;
+  padding: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.filter-select:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.filter-arrow {
+  font-size: 0.875rem;
+  color: var(--primary);
+}
+
+.filter-divider {
+  display: none;
+  width: 1px;
+  height: 2.5rem;
+  background: rgba(59, 73, 76, 0.2);
+}
+
+@media (min-width: 768px) {
+  .filter-divider { display: block; }
+}
+
+.filter-advanced {
+  margin-left: auto;
+  background: var(--surface-container-highest);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--primary);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.filter-advanced:hover {
+  background: var(--surface-bright);
+}
+
+.filter-advanced-icon {
+  font-size: 0.875rem;
+}
+
+/* --- Plot Grid --- */
+.plots-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .plots-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .plots-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* --- Plot Card --- */
+.plot-card {
+  background: var(--surface-container-low);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: 0 20px 40px -10px rgba(0, 229, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.5s, transform 0.3s;
+}
+
+.plot-card:hover {
+  background: var(--surface-container-high);
+  transform: translateY(-4px);
+}
+
+.plot-image-wrapper {
+  position: relative;
+  height: 16rem;
+  overflow: hidden;
+}
+
+.plot-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s;
+}
+
+.plot-card:hover .plot-image {
+  transform: scale(1.1);
+}
+
+.plot-vignette {
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 -80px 60px -20px #181c22;
+}
+
+.plot-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(11, 14, 20, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  border: 1px solid rgba(195, 245, 255, 0.2);
+}
+
+.plot-info {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.plot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.plot-name {
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--on-surface);
+  transition: color 0.3s;
+}
+
+.plot-card:hover .plot-name {
+  color: var(--primary);
+}
+
+.plot-coords {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.625rem;
+  color: var(--on-surface-variant);
+  letter-spacing: 0.1em;
+  margin-top: 0.25rem;
+}
+
+.coords-icon {
+  font-size: 0.875rem;
+}
+
+.plot-footer {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(59, 73, 76, 0.1);
+}
+
+.plot-price-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.plot-price-label {
+  font-size: 0.5625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--outline);
+}
+
+.plot-price {
+  font-family: var(--font-headline);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.plot-currency {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--on-surface-variant);
+}
+
+.plot-view-btn {
+  padding: 0.5rem 1.5rem;
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.plot-card:hover .plot-view-btn {
+  border-color: var(--primary);
+  color: var(--primary);
+}
